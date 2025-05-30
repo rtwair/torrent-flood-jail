@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# PROVIDE: rtorrent_flood
+# REQUIRE: DAEMON NETWORKING
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="rtorrent_flood"
+rcvar="${name}_enable"
+command="/usr/local/bin/rtorrent-flood-setup.sh"
+start_cmd="${name}_start"
+stop_cmd="${name}_stop"
+
+rtorrent_flood_start()
+{
+    echo "Starting rtorrent and flood services..."
+    ${command}
+}
+
+rtorrent_flood_stop()
+{
+    echo "Stopping rtorrent and flood services..."
+    # Kill all screen sessions starting with "rtorrent-"
+    screen -ls | grep "rtorrent-" | cut -d. -f1 | awk '{print $1}' | xargs -I {} screen -S {} -X quit
+}
+
+load_rc_config $name
+run_rc_command "$1"
