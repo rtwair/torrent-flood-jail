@@ -155,7 +155,7 @@ tail -f /var/log/rtorrent-flood.log
 **Flood can't connect to rtorrent:**
 - Verify rtorrent is running: `screen -ls`
 - Check SCGI port is listening: `sockstat -l | grep 5000`
-- Ensure rtorrent config has `scgi_port = 127.0.0.1:5000`
+- Ensure rtorrent config has `scgi_port = 127.0.0.10:5000`
 
 **Permission errors when adding torrents:**
 - Check temp directory permissions: `ls -la /tmp`
