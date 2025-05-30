@@ -23,7 +23,8 @@ This setup provides:
 
 - FreeBSD jail or system
 - rtorrent installed (`pkg install rtorrent`)
-- Flood installed (`npm install -g flood` or via npm)
+- Flood installed (`npm install -g flood`)
+  - Update using (`npm update -g flood`)
 - screen installed (`pkg install screen`)
 - User `admin` created for running rtorrent
 
